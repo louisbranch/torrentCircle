@@ -20,6 +20,7 @@ gem 'friendly_id'
 gem 'will_paginate', '~> 3.0'
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'execjs'
   gem 'therubyracer'
   gem 'rspec-rails', '~> 2.8.1'

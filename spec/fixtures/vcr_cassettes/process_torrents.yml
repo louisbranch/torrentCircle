@@ -1,0 +1,56 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://www.imdbapi.com:80/?t=J%20Edgar
+    body: !!null 
+    headers:
+      accept:
+      - ! '*/*; q=0.5, application/xml'
+      accept-encoding:
+      - gzip, deflate
+      timeout:
+      - '3'
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      cache-control:
+      - no-cache
+      pragma:
+      - no-cache
+      content-type:
+      - text/html; charset=utf-8
+      content-encoding:
+      - gzip
+      expires:
+      - '-1'
+      vary:
+      - Accept-Encoding
+      server:
+      - Microsoft-IIS/7.0
+      x-aspnet-version:
+      - 4.0.30319
+      x-powered-by:
+      - ASP.NET
+      date:
+      - Thu, 16 Feb 2012 02:40:00 GMT
+      content-length:
+      - '628'
+    body: !binary |-
+      H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
+      kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
+      AWz2zkrayZ4hgKrIHz9+fB8/In7xR2+Ktsw/evTRd8bp6ewiqz8affT75PTj
+      0Ud7O7u79NerrM1n9Ocr/J6Xedbwn7u76YvqMtVGn+fLGlCeFNVFna3m16P0
+      aZ0tMvrqaVHn07YCxJOyWLbpada0V1U1o+++Wxdtjm+erpu2WKbPs+U0T5+U
+      2fQtfXuM1xr69nleLbN6VqVPi5NsVRfVKD2uF0WefjtbLPJ6lL7IqkWRfjdr
+      22aUfqdq5vimKNtqSWBellVLQI6btJ3n6XlGPVTnaZldpfnyvKqn+SInrKj3
+      Y4JVTLOUPkyzclE1bXp/J73OsxpQlT7pt6vqMq/Tq6xJz+mrfJZmS/r/bEHj
+      nI3SOr8sSv2Qfs/pw3H6ZN2mk3xe0GfTsiICprOKhjZKCaF5Xs7SJp/WeQsM
+      sza9qtb00Ty7zNNZ3rR1dU0vzIsmLRbZRU4v0a9T6pmwQC/4syzO8zHGSkgz
+      Qedtu3p0926RjRf5rMi2i8VsMp5Wi7sMo7n7xd0vfvL+ky/eTHdePP1i/8un
+      X+29KOlv+n+2fLL8vd8+a3/qzfTqxQ9+YufFm4v9Fxe/5+85/v1/cvf3f/17
+      39vbGf/06oL6erVetsUCs76Xzusm3X2QLoplg28ymswL+uLBeI/+/MmqzTGN
+      9w/279GfZ0/p97bd/ZT+e3ifPniVN6tq2QDSm3qdf/RL/h/ZGUDFlgIAAA==
+    http_version: '1.1'

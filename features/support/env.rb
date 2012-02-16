@@ -6,6 +6,11 @@ Spork.prefork do
   require 'capybara/rails'
 
   Capybara.default_selector = :css
+
+  VCR.config do |c|
+    c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
+    c.stub_with :fakeweb
+  end
 end
 
 Spork.each_run do

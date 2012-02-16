@@ -14,15 +14,19 @@ gem 'haml-rails'
 gem 'coffeebeans'
 gem 'rdiscount'
 gem 'nokogiri'
+gem 'movies'
 gem 'sorcery'
 gem 'cancan'
 gem 'friendly_id'
 gem 'will_paginate', '~> 3.0'
 
-group :development, :test do
+group :development do
   gem 'sqlite3'
   gem 'execjs'
   gem 'therubyracer'
+end
+
+group :test do
   gem 'rspec-rails', '~> 2.8.1'
   gem 'shoulda-matchers'
   gem 'cucumber-rails'
@@ -38,6 +42,8 @@ group :development, :test do
   gem 'rb-inotify'
   gem 'fuubar-cucumber'
   gem 'simplecov'
+  gem 'vcr'
+  gem 'fakeweb'
 end
 
 group :production do

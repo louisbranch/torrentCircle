@@ -1,0 +1,6 @@
+%h1 Top 100 Movies on The Pirate Bay
+%ul
+  - @torrents.each_with_index do |torrent, i|
+    %li
+      = "##{i + 1}"
+      = torrent.name

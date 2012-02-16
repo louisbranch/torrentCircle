@@ -23,14 +23,15 @@ class MovieFinder
   def find_or_create_movie(imdb)
     movie = Movie.find_by_title(imdb.title)
     unless movie
-      Movie.create(
-        :title => imdb.title,
-        :rating => (imdb.rating * 10).to_i,
-        :url => imdb.href,
-        :image => imdb.poster,
-        :plot => imdb.plot
-      )
+      movie = Movie.create(
+          :title => imdb.title,
+          :rating => (imdb.rating * 10).to_i,
+          :url => imdb.href,
+          :image => imdb.poster,
+          :plot => imdb.plot
+        )
     end
+    movie
   end
 
 end

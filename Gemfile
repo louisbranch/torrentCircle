@@ -20,8 +20,11 @@ gem 'cancan'
 gem 'friendly_id'
 gem 'will_paginate', '~> 3.0'
 
-group :development do
+group :development, :test do
   gem 'sqlite3'
+end
+
+group :development do
   gem 'execjs'
   gem 'therubyracer'
 end

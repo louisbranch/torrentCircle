@@ -17,4 +17,10 @@ describe TorrentProcessor do
     processor.process(torrents).should include(torrent)
   end
 
+  it "creates a daily stats update for the torrents positions" do
+    torrent = FactoryGirl.create(:torrent)
+    torrents = [torrent]
+    processor.update_stats(torrents).should be_an_instance_of(DailyUpdate)
+  end
+
 end

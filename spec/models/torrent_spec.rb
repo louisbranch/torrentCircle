@@ -2,10 +2,22 @@ require 'spec_helper'
 
 describe Torrent do
 
-  let(:torrent) { FactoryGirl.build(:torrent) }
+  context "when is created" do
 
-  it "find a movie when it is created" do
-    pending 'not sute how to test a before_create callback on Rspec'
+    let(:torrent) { FactoryGirl.build(:torrent) }
+
+    it "finds a movie" do
+      pending 'not sute how to test a before_create callback on Rspec'
+    end
+
+  end
+
+  context "listing torrents" do
+
+    it "returns a list of the Top torrents" do
+      pending 'not sute how to test a class method with conditional scope'
+    end
+
   end
 
 end

@@ -1,7 +1,7 @@
 class TorrentsController < ApplicationController
 
   def index
-    @torrents = Torrent.all
+    @torrents = Torrent.top
   end
 
 end

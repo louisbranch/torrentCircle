@@ -1,12 +1,13 @@
 Given /^the torrents have been updated$/ do
   scraper = TorrentScraper.new
-  VCR.use_cassette('scrap_torrents') do
-    @torrents = scraper.scrape_page
-  end
   processor = TorrentProcessor.new
-  VCR.use_cassette('find_movies') do
-    processor.process(@torrents)
+  VCR.use_cassette('scrap_torrents') do
+    @torrents_list = scraper.scrape_page
   end
+  VCR.use_cassette('find_movies') do
+    @torrents = processor.process(@torrents_list)
+  end
+  processor.update_stats(@torrents)
 end
 
 When /^I go to the torrents list$/ do

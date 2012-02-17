@@ -1,7 +1,24 @@
-%h1 Top 100 Movies on The Pirate Bay
-%ul
-  - @torrents.each_with_index do |torrent, i|
-    %li
-      = "##{i + 1}"
-      = torrent.name
-      %strong= torrent.movie.title if torrent.movie
+%h1 Top 100 Movies
+%table.torrents_list.table.table-striped
+  %thead
+    %tr
+      %th #
+      %th Movie
+      %th Rating
+  %tbody
+    - @torrents.each_with_index do |torrent, i|
+      %tr
+        %td= i + 1
+        %td
+          = image_tag(torrent.movie_image, :class => 'movie_poster')
+          %div
+            %h2= torrent.movie_title
+            %div= torrent.movie_plot
+            %div.btn-group
+              = link_to torrent.tracker, :class => 'btn' do
+                %i.icon-download-alt
+                Download
+              = link_to torrent.magnet, :class => 'btn' do
+                %i.icon-magnet
+                Magnet Link
+        %td= torrent.movie_rating

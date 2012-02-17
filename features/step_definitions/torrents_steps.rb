@@ -15,5 +15,5 @@ When /^I go to the torrents list$/ do
 end
 
 Then /^I should see the top movies listed$/ do
-  (1..100).each { |n| page.should have_content "##{n}"}
+  (1..100).each { |n| page.should have_content "#{n}"}
 end

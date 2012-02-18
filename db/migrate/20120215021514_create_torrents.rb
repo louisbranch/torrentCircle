@@ -8,11 +8,11 @@ class CreateTorrents < ActiveRecord::Migration
       t.string :magnet
       t.integer :downloads_count, :default => 0
       t.references :movie
-      t.references :format
+      t.references :release_format
       t.timestamps
     end
     add_index :torrents, :pid
     add_index :torrents, :movie_id
-    add_index :torrents, :format_id
+    add_index :torrents, :release_format_id
   end
 end

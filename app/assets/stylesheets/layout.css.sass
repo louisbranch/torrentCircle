@@ -13,9 +13,26 @@ h2
 table.torrents_list
   img.movie_poster
     width: 80px
+    min-height: 80px
     float: left
     margin-right: 10px
   h2
     font-size: 16px
   div.btn-group
     margin-top: 10px
+  td.format
+    vertical-align: middle
+  td.rating
+    vertical-align: middle
+    text-align: center
+    font-size: 16px
+    font-weight: bold
+    border-right: 5px solid #fff
+    &.great
+      border-right-color: green
+    &.good
+      border-right-color: #AFB81B
+    &.ok
+      border-right-color: orange
+    &.terrible
+      border-right-color: red

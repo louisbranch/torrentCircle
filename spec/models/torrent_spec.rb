@@ -7,7 +7,7 @@ describe Torrent do
     let(:torrent) { FactoryGirl.build(:torrent) }
 
     it "finds a movie" do
-      pending 'not sute how to test a before_create callback on Rspec'
+      pending 'not sure how to test a before_create callback on Rspec'
     end
 
   end
@@ -15,7 +15,7 @@ describe Torrent do
   context "listing torrents" do
 
     it "returns a list of the Top torrents" do
-      pending 'not sute how to test a class method with conditional scope'
+      pending 'not sure how to test a class method with conditional scope'
     end
 
   end

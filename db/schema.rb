@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120217010151) do
+ActiveRecord::Schema.define(:version => 20120217141823) do
 
   create_table "daily_updates", :force => true do |t|
     t.text     "positions"
@@ -29,21 +29,29 @@ ActiveRecord::Schema.define(:version => 20120217010151) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "release_formats", :force => true do |t|
+    t.string   "name"
+    t.text     "labels"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "torrents", :force => true do |t|
     t.string   "pid"
     t.string   "name"
     t.string   "url"
     t.string   "tracker"
     t.string   "magnet"
-    t.integer  "downloads_count", :default => 0
+    t.integer  "downloads_count",   :default => 0
     t.integer  "movie_id"
-    t.integer  "format_id"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.integer  "release_format_id"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
-  add_index "torrents", ["format_id"], :name => "index_torrents_on_format_id"
   add_index "torrents", ["movie_id"], :name => "index_torrents_on_movie_id"
   add_index "torrents", ["pid"], :name => "index_torrents_on_pid"
+  add_index "torrents", ["release_format_id"], :name => "index_torrents_on_release_format_id"
 
 end

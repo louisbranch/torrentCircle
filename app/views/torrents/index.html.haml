@@ -4,13 +4,14 @@
     %tr
       %th #
       %th Movie
+      %th Format
       %th Rating
   %tbody
     - @torrents.each_with_index do |torrent, i|
       %tr
         %td= i + 1
         %td
-          = image_tag(torrent.movie_image, :class => 'movie_poster')
+          = image_tag torrent.movie_image, :class => 'movie_poster', :title => torrent.movie_title
           %div
             %h2= torrent.movie_title
             %div= torrent.movie_plot
@@ -20,5 +21,6 @@
                 Download
               = link_to torrent.magnet, :class => 'btn' do
                 %i.icon-magnet
-                Magnet Link
-        %td= torrent.movie_rating
+                Magnet
+        %td.format= torrent.release_format_name
+        = format_rating(torrent.movie_rating)

@@ -15,12 +15,14 @@
             %h2= torrent.movie_title
             %div= torrent.movie_plot
             %div.btn-group
-              = link_to torrent.tracker, :class => 'btn' do
+              = link_to torrent.tracker, :class => 'btn', 'data-tooltip' => true, :title => 'Download Torrent' do
                 %i.icon-download-alt
                 Download
-              = link_to torrent.magnet, :class => 'btn' do
+              = link_to torrent.magnet, :class => 'btn', 'data-tooltip' => true, :title => 'Grab Torrent Magnet' do
                 %i.icon-magnet
                 Magnet
+              = link_to torrent.movie_url, :class => 'imdb', 'data-tooltip' => true, :title => 'View Movie on IMDb' do
+                = image_tag('imdb.png')
         %td.format
           %div{:title => torrent.release_format_description, 'data-tooltip' => true}= torrent.release_format_name
         %td.rating= format_rating(torrent.movie_rating)

@@ -1,11 +1,22 @@
+require 'open-uri'
 class Movie < ActiveRecord::Base
-  has_many :torrents
+  before_create :upload_poster
 
-  def poster
-    if image.empty?
-      'no_poster.png'
-    else
-      image
+  has_many :torrents
+  has_attached_file :poster, :styles => { :thumb=> "80x120>", :small  => "160x240>" },
+    :default_url => "/assets/posters/:style/missing.png",
+    :storage => Rails.env.production? ? :s3 : :filesystem,
+    :bucket => 'torrents_imgs',
+    :s3_credentials => {
+      :access_key_id => ENV['S3_KEY'],
+      :secret_access_key => ENV['S3_SECRET']
+  }
+
+  private
+
+  def upload_poster
+    unless poster_url.empty?
+      self.poster = open(poster_url)
     end
   end
 

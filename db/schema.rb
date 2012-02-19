@@ -23,10 +23,14 @@ ActiveRecord::Schema.define(:version => 20120217141823) do
     t.string   "title"
     t.integer  "rating"
     t.string   "url"
-    t.string   "image"
+    t.string   "poster_url"
     t.text     "plot"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "poster_file_name"
+    t.string   "poster_content_type"
+    t.integer  "poster_file_size"
+    t.datetime "poster_updated_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "release_formats", :force => true do |t|

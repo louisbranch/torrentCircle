@@ -4,8 +4,9 @@ class CreateMovies < ActiveRecord::Migration
       t.string :title
       t.integer :rating
       t.string :url
-      t.string :image
+      t.string :poster_url
       t.text :plot
+      t.has_attached_file :poster
       t.timestamps
     end
   end

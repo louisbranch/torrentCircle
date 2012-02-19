@@ -13,6 +13,7 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'nokogiri'
 gem 'movies'
+gem 'paperclip'
 
 group :development, :test do
   gem 'sqlite3'

@@ -27,7 +27,7 @@ class MovieFinder
           :title => imdb.title,
           :rating => (imdb.rating * 10).to_i,
           :url => imdb.href,
-          :image => imdb.poster,
+          :poster_url => imdb.poster,
           :plot => imdb.plot
         )
     end

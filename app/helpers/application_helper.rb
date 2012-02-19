@@ -8,7 +8,7 @@ module ApplicationHelper
       when 01..29 then c = 'terrible'
       when 0 then rating = '-'
     end
-    content_tag(:td, rating, :class => "rating #{c}")
+    content_tag(:span, rating, :class => c)
   end
 
 end

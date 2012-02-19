@@ -23,4 +23,4 @@
                 Magnet
         %td.format
           %div{:title => torrent.release_format_description, 'data-tooltip' => true}= torrent.release_format_name
-        = format_rating(torrent.movie_rating)
+        %td.rating= format_rating(torrent.movie_rating)

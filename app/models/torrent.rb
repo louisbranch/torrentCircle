@@ -4,7 +4,7 @@ class Torrent < ActiveRecord::Base
   belongs_to :movie
   belongs_to :release_format
 
-  delegate :title, :rating, :url, :image, :plot, :to => :movie, :prefix => true
+  delegate :title, :rating, :url, :poster, :plot, :to => :movie, :prefix => true
   delegate :name, :description, :to => :release_format, :prefix => true, :allow_nil => true
 
   def self.top

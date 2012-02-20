@@ -1,8 +1,16 @@
+body
+  padding-top: 50px
+
 header.navbar
   .navbar-inner
     border-radius: 0
+    padding: 0 10px
+    background: #eee
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.1)
     .container
       width: 100%
+      a
+        color: #000
 
 h1
   margin-bottom: 20px
@@ -10,15 +18,20 @@ h1
 h2
   margin-bottom: 5px
 
+.navbar-search .search-query, .navbar-search .search-query:hover
+  color: #333
+  text-shadow: 0 1px 0 white
+  background-color: white
+  border-color: #ddd
+
 div.last_update
-  color: #666
+  margin-top: 10px
   font-size: 10px
-  margin-bottom: 10px
 
 table.torrents_list
   img.movie_poster
     width: 80px
-    min-height: 80px
+    min-height: 100px
     float: left
     margin-right: 10px
   h2

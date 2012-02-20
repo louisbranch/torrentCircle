@@ -6,10 +6,15 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    %header.navbar
+    %header.navbar.navbar-fixed-top
       .navbar-inner
         .container
           = link_to 'TorrentCircle', root_path, :class => 'brand'
+          -#= form_tag '/torrents', :class => 'navbar-search pull-left' do
+            -#=search_field_tag :search,nil, :class => 'search-query', :placeholder => 'Search'
+          %div.last_update.pull-right
+            %strong Last Update:
+            %span{ :title => @update.created_at.getutc.iso8601 }= @update.created_at.to_s
     .container-fluid
       .row-fluid
         = render :partial => 'shared/flash_messages'

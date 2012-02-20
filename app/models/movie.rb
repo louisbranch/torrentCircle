@@ -12,6 +12,10 @@ class Movie < ActiveRecord::Base
       :secret_access_key => ENV['S3_SECRET']
   }
 
+  def amazon_url
+    "http://www.amazon.com/s/?url=search-alias%3Dmovies-tv&field-keywords=#{title}"
+  end
+
   private
 
   def upload_poster

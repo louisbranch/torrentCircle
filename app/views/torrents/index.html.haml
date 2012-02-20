@@ -21,8 +21,11 @@
               = link_to torrent.magnet, :class => 'btn', 'data-tooltip' => true, :title => 'Grab Torrent Magnet' do
                 %i.icon-magnet
                 Magnet
+            %div.sources
               = link_to torrent.movie_url, :class => 'imdb', 'data-tooltip' => true, :title => 'View Movie on IMDb' do
                 = image_tag('imdb.png')
+              = link_to torrent.url, :class => 'pirate', 'data-tooltip' => true, :title => 'View Torrent on The Pirate Bay' do
+                = image_tag('pirate.png')
         %td.format
           %div{:title => torrent.release_format_description, 'data-tooltip' => true}= torrent.release_format_name
         %td.rating= format_rating(torrent.movie_rating)

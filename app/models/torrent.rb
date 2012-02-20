@@ -8,8 +8,8 @@ class Torrent < ActiveRecord::Base
   delegate :name, :description, :to => :release_format, :prefix => true, :allow_nil => true
 
   def self.top
-    if DailyUpdate.last
-      includes(:movie).where(:id => DailyUpdate.last.positions)
+    if DailyUpdate.first
+      includes(:movie).where(:id => DailyUpdate.first.positions)
     else
       scoped
     end

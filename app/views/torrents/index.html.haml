@@ -1,3 +1,6 @@
+%div.last_update.pull-right
+  %strong Last Update:
+  %span{ :title => @update.created_at.getutc.iso8601 }= @update.created_at.to_s
 %table.torrents_list.table.table-striped
   %thead
     %tr

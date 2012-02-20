@@ -16,7 +16,7 @@ class MovieFinder
   def filter_name(name)
     symbols = [".","(",")","[","]"]
     symbols.each {|s| name.gsub!(s," ")}
-    filtered_name = name.match(/(.*?)\d{4}/) || name.match(/(.*?)[A-Z]{2}/)
+    filtered_name = name.match(/(.*?)\d{4}/) || name.match((/(.*?)dvd/i) || name.match(/(.*?)[A-Z]{2}/)
     filtered_name[1].strip!
   end
 

@@ -28,11 +28,25 @@ div.last_update
   margin-top: 10px
   font-size: 10px
 
+form.filters
+  float: left
+  margin: 5px 0 0 10px
+  div
+    float: left
+    margin-right: 10px
+    //&.unique_movies
+      //width: auto
+      //margin: 5px 25px 0 0
+    select#torrent_sort
+      width: 160px
+
 table.torrents_list
   thead
-    th.format
+    th#format
       min-width: 100px
       text-align: center
+  tr.inactive_format
+    display: none
   img.movie_poster
     width: 80px
     min-height: 80px

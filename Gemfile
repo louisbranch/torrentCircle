@@ -20,7 +20,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'execjs'
   gem 'therubyracer'
 end
 

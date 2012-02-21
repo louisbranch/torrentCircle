@@ -13,8 +13,22 @@ $ filterReleseFormats = ->
       if this.value
         for tr in $('table.torrents_list > tbody > tr')
           if $(tr).attr('data-movie-format') == this.value
-            $(tr).show()
+            $(tr).removeClass('inactive_format')
           else
-            $(tr).hide()
+            $(tr).addClass('inactive_format')
       else
-        $('table.torrents_list > tbody > tr').show()
+        $('table.torrents_list > tbody > tr').removeClass('inactive_format')
+
+$ sortRatings = ->
+  if $('#torrent_sort').length
+    table = $('table.torrents_list > tbody > tr')
+    $('#torrent_sort').change ->
+      switch this.value
+        when 'downloads'
+          table.tsort('td.position')
+        when 'name'
+          table.tsort('td.movie h2')
+        when 'format'
+          table.tsort('td.format')
+        when 'rating'
+          table.tsort('td.rating span',{ order: 'desc' })

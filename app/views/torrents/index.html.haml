@@ -3,13 +3,13 @@
     %tr
       %th #
       %th Movie
-      %th.format Format
+      %th#format Format
       %th Rating
   %tbody
     - @torrents.each_with_index do |torrent, i|
-      %tr{ 'data-movie' => torrent.movie_id, 'data-movie-format' => torrent.release_format_id}
-        %td= i + 1
-        %td
+      %tr{ 'data-movie-format' => torrent.release_format_id}
+        %td.position= i + 1
+        %td.movie
           = image_tag torrent.movie_poster(:thumb), :class => 'movie_poster', :title => torrent.movie_title, :alt => torrent.movie_title
           %div
             %h2= torrent.movie_title

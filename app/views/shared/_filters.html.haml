@@ -1,3 +1,13 @@
-= form_tag '/torrents', :class => 'navbar-search pull-left' do
+- sort_options = [['Order by Downloads', 'downloads'], ['Order by Name', 'name'], ['Order by Format', 'format'], ['Order by Rating', 'rating']]
+
+= form_tag '/torrents', :class => 'filters' do
   -#=search_field_tag :search,nil, :class => 'search-query', :placeholder => 'Search'
-  =collection_select(:torrent, :release_format, release_formats, :id, :name, {:prompt => 'All formats'}, {:class => 'span2'})
+  -#div.unique_movies
+    -#=label_tag :unique, :class => 'checkbox' do
+      -#=check_box_tag :unique
+      -#Hide duplicated movies
+
+  %div
+    =select(:torrent, :sort, sort_options.map {|o| [o[0], o[1]] })
+  %div
+    =collection_select(:torrent, :release_format, release_formats, :id, :name, {:prompt => 'All formats'}, {:class => 'span2'})

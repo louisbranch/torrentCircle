@@ -9,7 +9,9 @@ class Torrent < ActiveRecord::Base
 
   def self.top
     if DailyUpdate.first
-      includes([:movie, :release_format]).where(:id => DailyUpdate.first.positions)
+      update = DailyUpdate.first.positions
+      torrents = includes([:movie, :release_format]).where(:id => update)
+      sorted = update.collect {|id| torrents.detect {|x| x.id == id}}
     else
       scoped
     end

@@ -4,12 +4,12 @@ class Torrent < ActiveRecord::Base
   belongs_to :movie
   belongs_to :release_format
 
-  delegate :title, :rating, :url, :amazon_url, :poster, :plot, :to => :movie, :prefix => true
-  delegate :name, :description, :to => :release_format, :prefix => true, :allow_nil => true
+  delegate :id, :title, :rating, :url, :amazon_url, :poster, :plot, :to => :movie, :prefix => true
+  delegate :id, :name, :description, :to => :release_format, :prefix => true, :allow_nil => true
 
   def self.top
     if DailyUpdate.first
-      includes(:movie).where(:id => DailyUpdate.first.positions)
+      includes([:movie, :release_format]).where(:id => DailyUpdate.first.positions)
     else
       scoped
     end

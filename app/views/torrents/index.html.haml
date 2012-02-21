@@ -1,13 +1,13 @@
-%table.torrents_list.table.table-striped
+%table.torrents_list.table
   %thead
     %tr
       %th #
       %th Movie
-      %th Format
+      %th.format Format
       %th Rating
   %tbody
     - @torrents.each_with_index do |torrent, i|
-      %tr
+      %tr{ 'data-movie' => torrent.movie_id, 'data-movie-format' => torrent.release_format_id}
         %td= i + 1
         %td
           = image_tag torrent.movie_poster(:thumb), :class => 'movie_poster', :title => torrent.movie_title, :alt => torrent.movie_title

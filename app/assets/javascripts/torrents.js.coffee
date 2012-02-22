@@ -37,3 +37,10 @@ $ searchMovie = ->
   if $('input#search').length
     $('input#search').quicksearch 'table tbody tr',
       selector: 'td.movie'
+
+$ resetFilters = ->
+  if $('a#reset_filters').length
+    $('a#reset_filters').click ->
+      $('form.filters')[0].reset()
+      $('table.torrents_list > tbody > tr').tsort('td.position').removeClass('inactive_format').show()
+      false

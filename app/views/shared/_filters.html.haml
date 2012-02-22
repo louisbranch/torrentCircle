@@ -12,3 +12,7 @@
     =select(:torrent, :sort, sort_options.map {|o| [o[0], o[1]] })
   %div
     =collection_select(:torrent, :release_format, release_formats, :id, :name, {:prompt => 'All formats'}, {:class => 'span2'})
+  %div
+    =link_to torrents_path, :id => 'reset_filters', :class => 'btn' do
+      %i.icon-refresh
+      Reset

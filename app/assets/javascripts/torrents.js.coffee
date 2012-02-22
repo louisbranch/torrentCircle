@@ -32,3 +32,8 @@ $ sortRatings = ->
           table.tsort('td.format')
         when 'rating'
           table.tsort('td.rating span',{ order: 'desc' })
+
+$ searchMovie = ->
+  if $('input#search').length
+    $('input#search').quicksearch 'table tbody tr',
+      selector: 'td.movie'

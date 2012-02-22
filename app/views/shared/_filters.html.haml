@@ -1,7 +1,8 @@
 - sort_options = [['Order by Downloads', 'downloads'], ['Order by Name', 'name'], ['Order by Format', 'format'], ['Order by Rating', 'rating']]
 
 = form_tag '/torrents', :class => 'filters' do
-  -#=search_field_tag :search,nil, :class => 'search-query', :placeholder => 'Search'
+  %div
+    =search_field_tag :search, nil, :placeholder => 'Search', :autocomplete => 'off'
   -#div.unique_movies
     -#=label_tag :unique, :class => 'checkbox' do
       -#=check_box_tag :unique

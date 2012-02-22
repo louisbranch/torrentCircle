@@ -1,4 +1,4 @@
-%table.torrents_list.table
+%table.torrents_list.table{ 'data-same-movies' => @same_movies}
   %thead
     %tr
       %th #
@@ -7,7 +7,7 @@
       %th Rating
   %tbody
     - @torrents.each_with_index do |torrent, i|
-      %tr{ 'data-movie-format' => torrent.release_format_id}
+      %tr{ 'data-movie-format' => torrent.release_format_id, :id => ['torrent', torrent.id]}
         %td.position= i + 1
         %td.movie
           = image_tag torrent.movie_poster(:thumb), :class => 'movie_poster', :title => torrent.movie_title, :alt => torrent.movie_title

@@ -34,27 +34,29 @@ form.filters
   div
     float: left
     margin-right: 10px
-    //&.unique_movies
-      //width: auto
-      //margin: 5px 25px 0 0
+    &.unique_movies
+      label
+        line-height: 28px
+      input
+        margin-top: 7px
     select#torrent_sort
       width: 160px
     a#reset_filters
       margin-top: 0
+      margin-left: 10px
 
 table.torrents_list
   thead
     th#format
       min-width: 100px
       text-align: center
-  tr.inactive_format
+  tr.inactive_format, tr.inactive_movie
     display: none
   img.movie_poster
     width: 80px
     min-height: 80px
     float: left
     margin-right: 10px
-    //box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.1)
   h2
     font-size: 16px
   div.btn-group

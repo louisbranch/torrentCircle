@@ -17,6 +17,11 @@ class Torrent < ActiveRecord::Base
     end
   end
 
+  def self.same_movies
+    dup = top - top.uniq_by {|t| t.movie_id}
+    dup.map(&:id)
+  end
+
   private
 
   def find_movie
@@ -25,6 +30,16 @@ class Torrent < ActiveRecord::Base
 
   def find_format
     self.release_format = ReleaseFormat.find_format(name)
+  end
+
+  def self.uniq_by(&blk)
+    transforms = {}
+    select do |el|
+      t = blk[el]
+      should_keep = !transforms[t]
+      transforms[t] = true
+      should_keep
+    end
   end
 
 end

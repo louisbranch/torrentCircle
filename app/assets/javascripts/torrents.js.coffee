@@ -42,5 +42,12 @@ $ resetFilters = ->
   if $('a#reset_filters').length
     $('a#reset_filters').click ->
       $('form.filters')[0].reset()
-      $('table.torrents_list > tbody > tr').tsort('td.position').removeClass('inactive_format').show()
+      $('table.torrents_list > tbody > tr').tsort('td.position').removeClass('inactive_format inactive_movie').show()
       false
+
+$ hideDuplicatedMovies = ->
+  if $('input#same_movies').length
+    torrents = $('table.torrents_list').data('same-movies')
+    $('input#same_movies').click ->
+      for torrent in torrents
+        $('tr#torrent_'+torrent).toggleClass('inactive_movie')

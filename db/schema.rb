@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20120217141823) do
     t.string   "name"
     t.string   "url"
     t.string   "tracker"
-    t.string   "magnet"
+    t.text     "magnet"
     t.integer  "downloads_count",   :default => 0
     t.integer  "movie_id"
     t.integer  "release_format_id"

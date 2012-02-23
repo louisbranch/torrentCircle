@@ -1,5 +1,7 @@
 ReleaseFormat.create([
 
+  { :name => 'Unknown', :description => 'It was not possible to find in which format this movie was encoded.'},
+
   { :name => 'Cam', :labels => %w(CAMRip CAM), :description => 'A copy made in a cinema using a camcorder or mobile phone. The sound source is the camera microphone.'},
 
   { :name => 'Telesync', :labels => %w(TS TELESYNC PDVD), :description => 'A copy was shot in an empty cinema or from the projection booth with a professional camera mounted on a tripod, directly connected to the sound source.'},

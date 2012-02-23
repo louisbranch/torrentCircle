@@ -4,7 +4,7 @@ class TorrentsController < ApplicationController
     @torrents = Torrent.top
     @same_movies = Torrent.same_movies
     @update = DailyUpdate.first
-    @release_formats = @torrents.collect {|torrent| torrent.release_format}.uniq.sort
+    @release_formats = @torrents.collect {|torrent| torrent.release_format}.uniq
   end
 
 end

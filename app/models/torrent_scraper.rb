@@ -32,7 +32,6 @@ class TorrentScraper
       :pid => extract_pirate_id(url),
       :name => extract_name(row),
       :magnet => extract_magnet(row),
-      :tracker => extract_tracker(row),
     }
   end
 
@@ -51,10 +50,6 @@ class TorrentScraper
 
   def extract_magnet(row)
     row.at_css('a[2]')['href']
-  end
-
-  def extract_tracker(row)
-    row.at_css('a[3]')['href']
   end
 
 end

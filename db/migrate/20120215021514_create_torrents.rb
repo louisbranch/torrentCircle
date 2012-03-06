@@ -4,7 +4,6 @@ class CreateTorrents < ActiveRecord::Migration
       t.string :pid
       t.string :name
       t.string :url
-      t.string :tracker
       t.text :magnet
       t.integer :downloads_count, :default => 0
       t.references :movie

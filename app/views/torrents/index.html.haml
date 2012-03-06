@@ -15,12 +15,9 @@
             %h2= torrent.movie_title
             %div= torrent.movie_plot
             %div.btn-group
-              = link_to torrent.tracker, :class => 'btn', 'data-tooltip' => true, :title => 'Download Torrent' do
-                %i.icon-download-alt
-                Download
               = link_to torrent.magnet, :class => 'btn', 'data-tooltip' => true, :title => 'Grab Torrent Magnet' do
                 %i.icon-magnet
-                Magnet
+                Download Magnet
               %a.btn.dropdown-toggle{'data-toggle' => 'dropdown'}
                 %span.caret
               %ul.dropdown-menu

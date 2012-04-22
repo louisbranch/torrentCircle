@@ -1,16 +1,16 @@
 require 'spec_helper'
 
-describe MovieFinder do
+describe TorrentCircle::MovieFinder do
 
   context "formats the torrent name before searching" do
 
     it "has a release year" do
-      finder = MovieFinder.new('J Edgar 2011 DVDRip XviD-PADDO')
+      finder = TorrentCircle::MovieFinder.new('J Edgar 2011 DVDRip XviD-PADDO')
       finder.name.should eq('J Edgar')
     end
 
     it "has only a video format" do
-      finder = MovieFinder.new('J Edgar DVDRip XviD-PADDO')
+      finder = TorrentCircle::MovieFinder.new('J Edgar DVDRip XviD-PADDO')
       finder.name.should eq('J Edgar')
     end
 
@@ -18,7 +18,7 @@ describe MovieFinder do
 
   context "finding a new movie" do
 
-    let(:finder) { MovieFinder.new('J Edgar 2011 DVDRip XviD-PADDO') }
+    let(:finder) { TorrentCircle::MovieFinder.new('J Edgar 2011 DVDRip XviD-PADDO') }
 
     let(:result) do
       VCR.use_cassette('imdb_finder') do

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe TorrentProcessor do
+describe TorrentCircle::Processor do
 
-  let(:processor) { TorrentProcessor.new }
+  let(:processor) { TorrentCircle::Processor.new }
 
   it "creates new torrents and movies" do
     torrents = [{:pid => '12345', :name => 'J Edgar 2011 DVDRip XviD-PADDO'}]

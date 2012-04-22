@@ -25,7 +25,7 @@ class Torrent < ActiveRecord::Base
   private
 
   def find_movie
-    self.movie = MovieFinder.new(name).find
+    self.movie = TorrentCircle::MovieFinder.new(name).find
   end
 
   def find_format

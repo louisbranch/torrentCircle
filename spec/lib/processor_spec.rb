@@ -1,26 +1,22 @@
 require 'spec_helper'
+require 'processor'
 
 describe TorrentCircle::Processor do
 
   let(:processor) { TorrentCircle::Processor.new }
 
-  it "creates new torrents and movies" do
-    torrents = [{:pid => '12345', :name => 'J Edgar 2011 DVDRip XviD-PADDO'}]
-    VCR.use_cassette('process_torrents') do
-      processor.process(torrents).should have(1).torrents
-    end
-  end
-
-  it "find existing torrents" do
-    torrent = FactoryGirl.create(:torrent, :pid => '12345')
-    torrents = [{:pid => '12345', :name => 'J Edgar 2011 DVDRip XviD-PADDO'}]
-    processor.process(torrents).should include(torrent)
+  it "creates new torrents or finds existing ones" do
+    torrent = double('torrent')
+    torrent_list = [{:pid => '12345', :name => 'J Edgar 2011 DVDRip XviD-PADDO'}]
+    torrent.should_receive(:find_or_create).with(torrent_list.first)
+    processor.process(torrent_list, torrent)
   end
 
   it "creates a daily stats update for the torrents positions" do
-    torrent = FactoryGirl.create(:torrent)
-    torrents = [torrent]
-    processor.update_stats(torrents).should be_an_instance_of(DailyUpdate)
+    daily_update = double('daily_update')
+    torrent_list = [{:id => 10}, {:id => 99}]
+    daily_update.should_receive(:create).with(:positions => [10,99])
+    processor.update_stats(torrent_list, daily_update)
   end
 
 end

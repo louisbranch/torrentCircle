@@ -2,23 +2,17 @@ module TorrentCircle
 
   class Processor
 
-    def process(torrents)
-      new_torrents = []
+    def process(torrents, storage = ::Torrent)
+      updated_torrents = []
       torrents.each do |torrent|
-        new_torrents << find_or_create_torrent(torrent)
+        updated_torrents << storage.find_or_create(torrent)
       end
-      new_torrents
+      updated_torrents
     end
 
-    def update_stats(torrents)
-      ids = torrents.map(&:id)
-      DailyUpdate.create(:positions => ids)
-    end
-
-    private
-
-    def find_or_create_torrent(torrent)
-      torrent = Torrent.find_by_pid(torrent[:pid]) || Torrent.create(torrent)
+    def update_stats(torrents, stats = ::DailyUpdate)
+      ids = torrents.map { |t| t[:id] }
+      stats.create(:positions => ids)
     end
 
   end

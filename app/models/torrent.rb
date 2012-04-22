@@ -1,3 +1,5 @@
+require 'movie_finder'
+
 class Torrent < ActiveRecord::Base
   before_create :find_movie
   before_create :find_format
@@ -6,6 +8,10 @@ class Torrent < ActiveRecord::Base
 
   delegate :id, :title, :rating, :url, :amazon_url, :poster, :plot, :to => :movie, :prefix => true
   delegate :id, :name, :description, :to => :release_format, :prefix => true, :allow_nil => true
+
+  def self.find_or_create(torrent)
+    find_by_pid(torrent[:pid]) || create(torrent)
+  end
 
   # Return the TOP 100 torrents from the last Daily Update.
   # If a Daily update is missing, return all torrents available

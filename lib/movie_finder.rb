@@ -7,6 +7,7 @@ module TorrentCircle
       @name = filter_name(name)
     end
 
+    # Connect to IMDB API and returns a movie object
     def find(api = ::Movies, klass = ::Movie)
       imdb = api.find_by_title(@name)
       klass.find_or_create(imdb) if imdb.found?
@@ -14,6 +15,7 @@ module TorrentCircle
 
     private
 
+    # Remove all extra information from the torrent name and leave just the movie title
     def filter_name(name)
       symbols = [".","(",")","[","]"]
       symbols.each {|s| name.gsub!(s," ")}

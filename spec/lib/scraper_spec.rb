@@ -1,10 +1,11 @@
 require 'spec_helper'
+require 'scraper'
 
-describe TorrentScraper do
+describe TorrentCircle::Scraper do
 
   let(:scraper) do
     VCR.use_cassette('top_movies') do
-      TorrentScraper.new.scrape_page
+      TorrentCircle::Scraper.new.scrape_page
     end
   end
 
@@ -26,10 +27,6 @@ describe TorrentScraper do
 
     it "has a valid url" do
       result[:url].should match(/http:\/\/www.thepiratebay.se\/torrent\/\d+\/.*/)
-    end
-
-    it "has a valid tracker link" do
-      result[:tracker].should match(/http:\/\/torrents.thepiratebay.se\/\d+\/.*\.torrent/)
     end
 
     it "has a valid magnetic link" do

@@ -7,9 +7,9 @@ Spork.prefork do
 
   Capybara.default_selector = :css
 
-  VCR.config do |c|
+  VCR.configure do |c|
     c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
-    c.stub_with :fakeweb
+    c.hook_into :fakeweb
   end
 end
 

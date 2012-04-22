@@ -7,6 +7,8 @@ class Torrent < ActiveRecord::Base
   delegate :id, :title, :rating, :url, :amazon_url, :poster, :plot, :to => :movie, :prefix => true
   delegate :id, :name, :description, :to => :release_format, :prefix => true, :allow_nil => true
 
+  # Return the TOP 100 torrents from the last Daily Update.
+  # If a Daily update is missing, return all torrents available
   def self.top
     if DailyUpdate.first
       update = DailyUpdate.first.positions
@@ -17,6 +19,7 @@ class Torrent < ActiveRecord::Base
     end
   end
 
+  # Return a list of torrents from the same Movie to allow users to filter those results
   def self.same_movies
     dup = top - top.uniq_by {|t| t.movie_id}
     dup.map(&:id)

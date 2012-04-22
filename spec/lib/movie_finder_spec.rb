@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'movie_finder'
 
 describe TorrentCircle::MovieFinder do
 
@@ -39,7 +40,7 @@ describe TorrentCircle::MovieFinder do
     end
 
     it "has a poster url" do
-      result.image.should match(/http:\/\/ia.media-imdb.com\/images\//)
+      result.poster_url.should match(/http:\/\/ia.media-imdb.com\/images\//)
     end
 
     it "has a plot" do

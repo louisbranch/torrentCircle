@@ -17,7 +17,7 @@ describe TorrentCircle::MovieFinder do
 
   end
 
-    it "finds a movie" do
+    it "finds a movie on IMDB and return a movie object from database" do
       movie = double('imdb', :found? => true)
       api = double('movies', :find_by_title => movie)
       klass = double('movie')

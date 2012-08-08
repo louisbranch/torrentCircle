@@ -1,6 +1,6 @@
 Given /^the torrents have been updated$/ do
-  scraper = TorrentScraper.new
-  processor = TorrentProcessor.new
+  scraper = TorrentCircle::Scraper.new
+  processor = TorrentCircle::Processor.new
   VCR.use_cassette('scrap_torrents') do
     @torrents_list = scraper.scrape_page
   end
